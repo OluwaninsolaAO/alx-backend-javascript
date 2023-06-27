@@ -5,7 +5,7 @@ export default function handleProfileSignup() {
   const user = createUser();
   return Promise.all([photo, user])
     .then(([vPhoto, vUser]) => {
-      console.log(vPhoto.body, vUser.firstName, vUser.lastName);
+      console.log(`${vPhoto.body} ${vUser.firstName} ${vUser.lastName}`);
     })
     .catch(() => {
       console.log('Signup system offline');
