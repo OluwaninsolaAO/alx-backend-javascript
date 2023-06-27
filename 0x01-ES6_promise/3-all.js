@@ -7,5 +7,7 @@ export default function handleProfileSignup() {
     .then(([vPhoto, vUser]) => {
       console.log(vPhoto.body, vUser.firstName, vUser.lastName);
     })
-    .catch(() => console.log('Signup system offline'));
+    .catch(() => {
+      console.log('Signup system offline');
+    });
 }
