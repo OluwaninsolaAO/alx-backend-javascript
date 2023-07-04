@@ -1,8 +1,7 @@
 export default function updateUniqueItems(map) {
-  map.forEach((value, key) => {
+  for (const [key, value] of map.entries()) {
     if (value === 1) {
       map.set(key, 100);
     }
-    map.set(key, value);
-  });
+  }
 }
