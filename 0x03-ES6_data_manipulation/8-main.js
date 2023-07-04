@@ -6,3 +6,6 @@ console.log(
 console.log(
   cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), '')
 );
+console.log(
+  cleanSet(new Set(['babajide', 'babarinde', 'Babatunde', 'baami']), 'ba')
+);
