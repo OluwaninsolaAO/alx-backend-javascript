@@ -65,3 +65,15 @@ function executeWork(employee: Director | Teacher): void {
 
 executeWork(createEmployee(200));
 executeWork(createEmployee(1000));
+
+// Task 07
+console.log('Task 07 =============');
+
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects) {
+  console.log(`Teaching ${todayClass}`);
+}
+
+teachClass('Math');
+teachClass('History');
