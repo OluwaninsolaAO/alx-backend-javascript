@@ -2,7 +2,7 @@
 // 0. Executing basic javascript with Node JS
 
 function displayMessage(str) {
-  process.stdout.write(`${str}\n`);
+  process.stdout.write(str);
 }
 
 module.exports = displayMessage;
