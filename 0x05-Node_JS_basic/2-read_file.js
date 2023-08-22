@@ -4,36 +4,36 @@ const { readFileSync } = require('fs');
 
 const delimeter = '\n';
 
-function countStudents(path) {
+function countStudents(dbPath) {
   try {
-    const data = readFileSync(path, 'utf-8');
-    const rows = data.split(delimeter);
-    const students = [];
-    const fields = new Set();
-    const header = rows.shift().split(',');
-    for (let row of rows) {
-      row = row.split(',');
-      const student = Object.fromEntries(
-        header.map((key, index) => [key, row[index]]),
-      );
-      students.push(student);
-      fields.add(student.field);
-    }
+    let students = fs.readFileSync(dbPath, 'utf-8');
+    students = students.split('\n');
+    students = students.slice(1, students.length - 1);
+    const courses = new Map();
 
+    // Parse CSV data creating a map of courseData objects.
+    students.forEach((student) => {
+      const studentData = student.split(',');
+      const firstName = studentData[0];
+      const field = studentData[3];
+      if (courses.has(field)) {
+        courses.get(field).students.push(firstName);
+        courses.get(field).count += 1;
+      } else {
+        courses.set(field, { students: [firstName], count: 1 });
+      }
+    });
+
+    // Display information from map
     console.log(`Number of students: ${students.length}`);
-    fields.forEach((field) => {
-      const studentsInField = students.filter(
-        (student) => student.field === field,
-      );
+    courses.forEach((courseData, course) => {
       console.log(
-        `Number of students in ${field}: ${
-          studentsInField.length
-        }. List: ${studentsInField
-          .map((student) => student.firstname)
-          .join(', ')}`,
+        `Number of students in ${course}: ${
+          courseData.count
+        }. List: ${courseData.students.join(', ')}`,
       );
     });
-  } catch (err) {
+  } catch (error) {
     throw new Error('Cannot load the database');
   }
 }
