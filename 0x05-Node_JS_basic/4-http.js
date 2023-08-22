@@ -3,11 +3,14 @@
 
 const { createServer } = require('http');
 
+const port = 1245;
+const host = '127.0.0.1';
+
 const app = createServer((req, resp) => {
   resp.writeHead(200, { 'Content-Type': 'text/plain' });
   resp.end('Hello Holberton School!');
 });
 
-app.listen(1245, '127.0.0.1', () => {
-  console.log('HTTP server listening on port 1245');
+app.listen(port, host, () => {
+  console.log(`Server is live, running at http://${host}:${port}`);
 });
