@@ -14,7 +14,7 @@ function countStudents(path) {
     for (let row of rows) {
       row = row.split(',');
       const student = Object.fromEntries(
-        header.map((key, index) => [key, row[index]])
+        header.map((key, index) => [key, row[index]]),
       );
       students.push(student);
       fields.add(student.field);
@@ -23,14 +23,14 @@ function countStudents(path) {
     console.log(`Number of students: ${students.length}`);
     fields.forEach((field) => {
       const studentsInField = students.filter(
-        (student) => student.field === field
+        (student) => student.field === field,
       );
       console.log(
         `Number of students in ${field}: ${
           studentsInField.length
         }. List: ${studentsInField
           .map((student) => student.firstname)
-          .join(', ')}`
+          .join(', ')}`,
       );
     });
   } catch (err) {
