@@ -6,8 +6,8 @@ const delimeter = '\n';
 
 function countStudents(dbPath) {
   try {
-    let students = fs.readFileSync(dbPath, 'utf-8');
-    students = students.split('\n');
+    let students = readFileSync(dbPath, 'utf-8');
+    students = students.split(delimeter);
     students = students.slice(1, students.length - 1);
     const courses = new Map();
 
