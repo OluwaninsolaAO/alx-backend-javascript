@@ -34,7 +34,7 @@ function countStudents(path) {
       );
     });
   } catch (err) {
-    // throw new Error('Cannot load the database');
+    throw new Error('Cannot load the database');
   }
 }
 
