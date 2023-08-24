@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
   res.send('Welcome to the payment system');
 });
 
-app.get(`/cart/:id([0-9])`, function (req, res) {
+app.get('/cart/:id([0-9]+)', function (req, res) {
   res.statusCode = 200;
   res.send(`Payment methods for cart ${req.params.id}`);
 });
