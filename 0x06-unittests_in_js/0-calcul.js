@@ -3,9 +3,8 @@
 /**
  * calculateNumber - accepts two arguments (number) a and b,
  * round a and b and return the sum of it.
- * @a -> being the first arguement
- * @b -> being the second arguement
- * returns -> sum of the rounds of both a and b
+ * @a being the first arguement
+ * @b being the second arguement
  */
 
 function calculateNumber(a, b) {
