@@ -9,9 +9,7 @@ describe('sendPaymentRequestToApi', function () {
     const stub = sinon.stub(Utils, 'calculateNumber').returns(10);
     sendPaymentRequestToApi(100, 20);
 
-    expect(spy.calledOnce).to.be.true;
     expect(spy.calledOnceWith('The total is: 10')).to.be.true;
-    expect(stub.calledOnce).to.be.true;
     expect(stub.calledOnceWith('SUM', 100, 20)).to.be.true;
 
     spy.restore();
