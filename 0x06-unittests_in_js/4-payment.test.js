@@ -1,6 +1,6 @@
 const sinon = require('sinon');
+const assert = require('assert');
 const Utils = require('./utils');
-const { expect } = require('chai');
 const sendPaymentRequestToApi = require('./3-payment');
 
 describe('sendPaymentRequestToApi', function () {
@@ -9,8 +9,8 @@ describe('sendPaymentRequestToApi', function () {
     const stub = sinon.stub(Utils, 'calculateNumber').returns(10);
     sendPaymentRequestToApi(100, 20);
 
-    expect(spy.calledOnceWith('The total is: 10')).to.be.true;
-    expect(stub.calledOnceWith('SUM', 100, 20)).to.be.true;
+    assert(spy.calledOnceWith('The total is: 10'));
+    assert(stub.calledOnceWith('SUM', 100, 20));
 
     spy.restore();
     stub.restore();
