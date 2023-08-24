@@ -8,5 +8,6 @@ describe('sendPaymentRequestToApi', function () {
     const spy = sinon.spy(Utils, 'calculateNumber');
     sendPaymentRequestToApi(100, 20);
     assert(spy.calledOnce);
+    spy.restore();
   });
 });
